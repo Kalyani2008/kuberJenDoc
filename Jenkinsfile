@@ -7,7 +7,7 @@ pipeline {
         stage('Build Maven'){
             steps{
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Kalyani2008/kuberJenDoc.git']]])
-                sh 'mvn clean install'
+                sh 'mvn clean package'
             }
         }
         stage('Build docker image'){
